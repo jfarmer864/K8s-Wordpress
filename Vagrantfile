@@ -8,7 +8,7 @@ Vagrant.configure("2") do |config|
     master.vm.network "private_network", ip: "192.168.10.105"
     master.vm.hostname = "Kube-master"
     master.vm.synced_folder "./Playbooks", "/home/ubuntu/Playbooks"
-    master.vm.synced_folder "./Dockerfiles", "/home/ubuntu/Dockerfiles"
+    master.vm.synced_folder "./wordpress-sql", "/home/ubuntu/wordpress-sql"
     master.vm.provision "ansible_local" do |ansible|
       ansible.playbook = "/home/ubuntu/Playbooks/master_playbook.yml"
       ansible.extra_vars = {
